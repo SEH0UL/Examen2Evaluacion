@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("kotlin-kapt")  // Añade este plugin
 }
 
 android {
@@ -55,6 +56,17 @@ dependencies {
     implementation(libs.converter.gson)
     //Picasso
     implementation (libs.picasso)
+
+    // Room
+    implementation(libs.androidx.room.runtime)
+    kapt(libs.androidx.room.compiler)  // Usa kapt en lugar de annotationProcessor
+    implementation(libs.androidx.room.ktx)  // Para soporte de corrutinas
+
+    // Corrutinas
+    implementation(libs.kotlinx.coroutines.core)
+    //noinspection GradleDependency
+    implementation(libs.kotlinx.coroutines.android)
+
 
 
 }
